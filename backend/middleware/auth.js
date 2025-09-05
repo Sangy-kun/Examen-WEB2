@@ -20,12 +20,3 @@ const auth = (req, res, next) => {
 
 module.exports = auth;
 
-
-/**
- * Commentaire pour nous dans le code pour nous aider à nous souvenir du fonctionnement
- * Récup le token JWT depuis le header Authorization
- * Vérifie le token avec la clé secrète (JWT_SECRET)
- * Si valide -> ajoute les infos décodées à req.user et passe au middleware suivant (next())
- * Si absent ou invalide → renvoie une erreur 401.
- * Mba ataovy azo kosa
- */

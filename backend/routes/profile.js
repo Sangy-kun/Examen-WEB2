@@ -189,4 +189,3 @@ router.delete('/picture', auth, async (req, res) => {
 });
 
 module.exports = router;
-
