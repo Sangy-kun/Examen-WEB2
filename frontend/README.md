@@ -70,6 +70,5 @@ NODE_ENV=development
 - Mots de passe hashés avec bcrypt
 - Authentification JWT
 - Validation des données côté serveur
-- Protection CSRF
-- Headers de sécurité
 
+il y a helmet, csurf (Protection CSRF (Cross-Site Request Forgery)) et dotenv
