@@ -43,12 +43,20 @@ code {
   color: #9ca3af;
 }
 
+.dark .text-gray-500:hover {
+  background-color: #f9fafb;
+  color: #000000;
+  border-radius: 5px;
+}
+
 .dark .border-gray-200 {
   border-color: #4b5563;
+  
 }
 
 .dark .border-gray-300 {
   border-color: #6b7280;
+  color: white;
 }
 
 /* Mode sombre pour les sélecteurs */
@@ -75,4 +83,12 @@ code {
 
 .dark .hover\:bg-blue-50:hover {
   background-color: #1e3a8a;
+}
+
+.dark .bg-green-100{
+  color: black;
+}
+
+.dark .rounded-lg{
+  color: #000000;
 }
