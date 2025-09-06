@@ -124,10 +124,8 @@ const Navigation: React.FC<NavigationProps> = ({ user, onLogout }) => {
                       : `http://localhost:5000${user.profile_picture}`}
                     alt="Photo de profil"
                     className="h-8 w-8 rounded-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'block';
-                    }}
+                    //farie ctrl z car ou réinserer et modifié la fonction qui était ici
+                    
                   />
                 ) : (
                   <User className="h-6 w-6" />

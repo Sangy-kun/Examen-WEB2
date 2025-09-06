@@ -129,3 +129,10 @@ router.get('/profile', auth, async (req, res) => {
 module.exports = router;
 
 
+/*   try {
+      await axios.post('/api/auth/register', {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      });
+*/
