@@ -1,4 +1,4 @@
--- Création de la base de données (à exécuter manuellement dans postres svp)
+-- Création de la base de données (à exécuter manuellement)
 -- CREATE DATABASE depense;
 
 -- Table des utilisateurs
