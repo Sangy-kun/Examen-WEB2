@@ -109,14 +109,14 @@ router.get('/:id', auth, async (req, res) => {
 // POST /api/expenses - Créer une dépense
 router.post('/', auth, upload.single('receipt'), async (req, res) => {
   try {
-    const { amount, date, categoryId, description, type, startDate, endDate } = req.body;
+    const { amount, date, category_id, description, type, start_date, end_date } = req.body;
 
     // Validation
-    if (!amount || !date || !categoryId || !type) {
+    if (!amount || !date || !category_id || !type) {
       return res.status(400).json({ message: 'Montant, date, catégorie et type sont requis' });
     }
 
-    if (type === 'recurring' && !startDate) {
+    if (type === 'recurring' && !start_date) {
       return res.status(400).json({ message: 'Date de début requise pour les dépenses récurrentes' });
     }
 
@@ -129,7 +129,7 @@ router.post('/', auth, upload.single('receipt'), async (req, res) => {
       `INSERT INTO expenses (amount, date, category_id, description, type, start_date, end_date, receipt_url, user_id) 
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
        RETURNING *`,
-      [amount, date, categoryId, description, type, startDate || null, endDate || null, receiptUrl, req.user.id]
+      [amount, date, category_id, description, type, start_date || null, end_date || null, receiptUrl, req.user.id]
     );
 
     res.status(201).json({
@@ -145,7 +145,7 @@ router.post('/', auth, upload.single('receipt'), async (req, res) => {
 // PUT /api/expenses/:id - Mettre à jour une dépense
 router.put('/:id', auth, upload.single('receipt'), async (req, res) => {
   try {
-    const { amount, date, categoryId, description, type, startDate, endDate } = req.body;
+    const { amount, date, category_id, description, type, start_date, end_date } = req.body;
     const expenseId = req.params.id;
 
     // Vérifier que la dépense appartient à l'utilisateur
@@ -188,7 +188,7 @@ router.put('/:id', auth, upload.single('receipt'), async (req, res) => {
            start_date = $6, end_date = $7, receipt_url = $8, updated_at = CURRENT_TIMESTAMP 
        WHERE id = $9 AND user_id = $10 
        RETURNING *`,
-      [amount, date, categoryId, description, type, startDate || null, endDate || null, receiptUrl, expenseId, req.user.id]
+      [amount, date, category_id, description, type, start_date || null, end_date || null, receiptUrl, expenseId, req.user.id]
     );
 
     res.json({
